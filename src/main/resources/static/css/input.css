@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@plugin "../js/daisyui.mjs";
+
+@source "../../templates/**/*.html";
+
+/* Evita que Tailwind intente escanear los propios archivos de DaisyUI */
+@source not "./daisyui.mjs";
+
+@layer components {
+  .btn-erp {
+    @apply bg-blue-600 text-white px-4 py-2 rounded;
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login ERP</title>
+    <link th:href="@{/css/output.css}" rel="stylesheet">
+    <script th:src="@{/js/htmx.min.js}"></script>
+
+
+</head>
+
+<!--<body th:attr="hx-headers='{&quot;X-CSRF-TOKEN&quot;: &quot;' + ${_csrf.token} + '&quot;}'"> -->
+<body th:attr="hx-headers='{&quot;' + ${_csrf.headerName} + '&quot;: &quot;' + ${_csrf.token} + '&quot;}'">
+
+
+<form
+    hx-post="/login"
+    hx-target="#login-error"
+    hx-swap="innerHTML">
+
+    <input type="email" name="username" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Contraseña" required />
+
+    <button type="submit">Ingresar</button>
+</form>
+
+<div id="login-error"></div>
+
+</body>
+</html>
