@@ -54,4 +54,18 @@ public class ProductEntity extends BaseEntity {
         orphanRemoval = true
     )
     private List<ProductVariantEntity> variants;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false, foreignKey = @ForeignKey(name = "fk_product_category"))
+    private CategoryEntity category;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private Brand brand;
+
+
+    public enum Brand {
+            GHOST,
+            MARCAS
+        }
 }

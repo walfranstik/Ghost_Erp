@@ -41,13 +41,5 @@ public class ProductVariantEntity extends BaseEntity {
     private List<InventoryEntity> inventories;
 
     
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
-    private Brand brand;
-
-
-    public enum Brand {
-            GHOST,
-            MARCAS
-        }
+    
 }

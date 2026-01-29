@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      data-theme="corporate"
+      th:fragment="layout(content)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${title} ?: 'ERP'">ERP</title>
+
+    <!-- Tailwind + DaisyUI -->
+    <link th:href="@{/css/output.css}" rel="stylesheet">
+
+    <!-- HTMX -->
+    <script th:src="@{/js/htmx.min.js}"></script>
+</head>
+
+<body
+    class="h-screen overflow-hidden"
+    th:attr="hx-headers='{&quot;' + ${_csrf.headerName} + '&quot;: &quot;' + ${_csrf.token} + '&quot;}'"
+>
+
+<div class="flex h-full">
+
+    <!-- SIDEBAR -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <!-- MAIN AREA -->
+    <div class="flex flex-col flex-1">
+
+        <!-- NAVBAR -->
+        <div th:replace="fragments/navbar :: navbar"></div>
+
+        <!-- CONTENT -->
+        <main id="main"
+              class="flex-1 overflow-y-auto p-6 bg-base-200">
+
+            <div th:replace="${content}"></div>
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>

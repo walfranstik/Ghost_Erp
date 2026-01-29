@@ -76,5 +76,18 @@ public class SaleEntity extends BaseEntity {
         RETURNED,
         CANCELLED
     }
+
+    public void changeStatus(SaleStatus newStatus) {
+    if (this.status == SaleStatus.CANCELLED) {
+        throw new IllegalStateException("Cannot change status of cancelled sale");
+    }
+    this.status = newStatus;
+    }
+    
+    public boolean isDelivered() {
+    return this.status == SaleStatus.DELIVERED;
+    }
+
+
 }
 

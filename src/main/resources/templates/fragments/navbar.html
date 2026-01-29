@@ -1,0 +1,40 @@
+<nav th:fragment="navbar"
+     class="h-16 bg-base-100 border-b flex items-center justify-between px-6">
+
+    <!-- LEFT -->
+    <div class="flex items-center gap-4">
+
+        <span class="text-lg font-semibold">
+            <span th:text="${title} ?: 'ERP'"></span>
+        </span>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex items-center gap-4">
+
+        <!-- USER -->
+        <div class="dropdown dropdown-end">
+
+            <label tabindex="0" class="btn btn-ghost">
+
+                <span th:text="${#authentication.name}"></span>
+
+            </label>
+
+            <ul tabindex="0"
+                class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48">
+
+                <li>
+                    <form action="/logout" method="post">
+                        <button>Salir</button>
+                    </form>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

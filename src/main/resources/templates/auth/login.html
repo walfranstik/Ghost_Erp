@@ -1,29 +1,89 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" data-theme="corporate">
 <head>
+    <meta charset="UTF-8">
     <title>Login ERP</title>
+
+    <!-- Tailwind / DaisyUI -->
     <link th:href="@{/css/output.css}" rel="stylesheet">
+
+    <!-- HTMX -->
     <script th:src="@{/js/htmx.min.js}"></script>
-
-
 </head>
 
-<!--<body th:attr="hx-headers='{&quot;X-CSRF-TOKEN&quot;: &quot;' + ${_csrf.token} + '&quot;}'"> -->
-<body th:attr="hx-headers='{&quot;' + ${_csrf.headerName} + '&quot;: &quot;' + ${_csrf.token} + '&quot;}'">
+<body
+    class="min-h-screen flex items-center justify-center bg-base-200"
+    th:attr="hx-headers='{&quot;' + ${_csrf.headerName} + '&quot;: &quot;' + ${_csrf.token} + '&quot;}'"
+>
 
+<!-- Card -->
+<div class="card w-full max-w-md shadow-2xl bg-base-100">
 
-<form
-    hx-post="/login"
-    hx-target="#login-error"
-    hx-swap="innerHTML">
+    <div class="card-body space-y-4">
 
-    <input type="email" name="username" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Contraseña" required />
+        <!-- Logo / Title -->
+        <div class="text-center">
+            <h1 class="text-3xl font-bold">ERP Login</h1>
+            <p class="text-sm text-gray-500">
+                Accede a tu sistema
+            </p>
+        </div>
 
-    <button type="submit">Ingresar</button>
-</form>
+        <!-- FORM -->
+        <form
+            hx-post="/login"
+            hx-target="#login-error"
+            hx-swap="innerHTML"
+            class="space-y-4"
+        >
 
-<div id="login-error"></div>
+            <!-- EMAIL -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Email</span>
+                </label>
+
+                <input
+                    type="email"
+                    name="username"
+                    placeholder="correo@empresa.com"
+                    required
+                    class="input input-bordered w-full"
+                />
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Contraseña</span>
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="********"
+                    required
+                    class="input input-bordered w-full"
+                />
+            </div>
+
+            <!-- ERROR -->
+            <div id="login-error"
+                 class="text-error text-sm text-center">
+            </div>
+
+            <!-- BUTTON -->
+            <div class="form-control">
+                <button class="btn btn-primary w-full">
+                    Ingresar
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
 
 </body>
 </html>
+
