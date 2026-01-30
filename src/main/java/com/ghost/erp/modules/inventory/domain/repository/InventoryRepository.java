@@ -11,6 +11,8 @@ import com.ghost.erp.modules.inventory.domain.model.product.ProductEntity;
 
 public interface InventoryRepository extends JpaRepository<InventoryEntity, Long> {
 
+    Optional<InventoryEntity> findById(Long inventoryId);
+
     Optional<InventoryEntity> findByProductVariant(Long productId);
     
     @Query("""

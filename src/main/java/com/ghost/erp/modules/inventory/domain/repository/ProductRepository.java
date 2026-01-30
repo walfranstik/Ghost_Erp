@@ -13,6 +13,9 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
     boolean existsByCode(String code);
 
+    List<ProductEntity> findAllByBrand(ProductEntity.Brand brand);
+
+
     List<ProductEntity> findByNameContainingIgnoreCaseAndActiveTrue(String name);
 
     List<ProductEntity> findAllByActiveTrue();

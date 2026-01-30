@@ -14,7 +14,6 @@ public interface ProductVariantRepository extends JpaRepository<ProductVariantEn
     // Buscar una variante por su código único
     Optional<ProductVariantEntity> findBySku(String sku);
 
-    List<ProductVariantEntity> findAllByBrand(ProductVariantEntity.Brand brand);
 
     // Listar todas las variantes de un producto (ej: todos los tamaños y colores de un Polo)
     List<ProductVariantEntity> findByProductId(Long productId);

@@ -32,7 +32,7 @@ public class ProductionEntity extends BaseEntity {
         cascade = CascadeType.ALL
     )
     @Builder.Default
-    private List<InventoryEntity> details = new ArrayList<>();
+    private List<InventoryEntity> inventorys = new ArrayList<>();
 
     @Column(nullable = false)
     private Integer quantity_produced;

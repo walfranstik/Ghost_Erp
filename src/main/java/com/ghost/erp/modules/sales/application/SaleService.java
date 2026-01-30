@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.ghost.erp.modules.finance.application.CashMovementService;
-import com.ghost.erp.modules.inventory.application.InventoryService;
+import com.ghost.erp.modules.inventory.application.inventory.InventoryService;
 import com.ghost.erp.modules.sales.domain.model.SaleEntity;
 import com.ghost.erp.modules.sales.domain.repository.SaleRepository;
 import com.ghost.erp.modules.users.application.SellerCommissionService;
